@@ -2,5 +2,13 @@
 <resources>
   <declare-styleable name="FastTextView">
     <attr name="enableLayoutCache" format="boolean"/>
+    <attr name="android:gravity"/>
+    <attr name="android:text" />
+    <attr name="android:ellipsize" />
+    <attr name="android:maxLines" />
+    <attr name="android:textColor" />
+    <attr name="android:textSize" />
+    <attr name="android:lineSpacingExtra" />
+    <attr name="android:lineSpacingMultiplier" />
   </declare-styleable>
 </resources>

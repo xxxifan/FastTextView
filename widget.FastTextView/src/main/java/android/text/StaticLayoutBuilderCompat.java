@@ -1,8 +1,8 @@
 package android.text;
 
-import android.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.os.Build;
-import android.support.v4.util.Pools;
+import androidx.core.util.Pools;
 
 /**
  * Builder for static layouts. The builder is a newer pattern for constructing
@@ -261,22 +261,18 @@ public class StaticLayoutBuilderCompat {
    */
   public StaticLayout build() {
     StaticLayout result;
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-      StaticLayout.Builder builder = StaticLayout.Builder.obtain(mText, mStart, mEnd, mPaint, mWidth);
-      builder.setAlignment(mAlignment)
-          .setBreakStrategy(mBreakStrategy)
-          .setIndents(mLeftIndents, mRightIndents)
-          .setHyphenationFrequency(mHyphenationFrequency)
-          .setTextDirection(mTextDir)
-          .setLineSpacing(mSpacingAdd, mSpacingMult)
-          .setIncludePad(mIncludePad)
-          .setEllipsizedWidth(mEllipsizedWidth)
-          .setEllipsize(mEllipsize)
-          .setMaxLines(mMaxLines);
-      result = builder.build();
-    } else {
-      result = new StaticLayout(mText, mStart, mEnd, mPaint, mWidth, mAlignment, mTextDir, mSpacingMult, mSpacingAdd, mIncludePad, mEllipsize, mEllipsizedWidth, mMaxLines);
-    }
+    StaticLayout.Builder builder = StaticLayout.Builder.obtain(mText, mStart, mEnd, mPaint, mWidth);
+    builder.setAlignment(mAlignment)
+        .setBreakStrategy(mBreakStrategy)
+        .setIndents(mLeftIndents, mRightIndents)
+        .setHyphenationFrequency(mHyphenationFrequency)
+        .setTextDirection(mTextDir)
+        .setLineSpacing(mSpacingAdd, mSpacingMult)
+        .setIncludePad(mIncludePad)
+        .setEllipsizedWidth(mEllipsizedWidth)
+        .setEllipsize(mEllipsize)
+        .setMaxLines(mMaxLines);
+    result = builder.build();
     sPool.release(this);
     return result;
   }

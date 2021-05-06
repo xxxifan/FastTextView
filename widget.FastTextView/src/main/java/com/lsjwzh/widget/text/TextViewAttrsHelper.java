@@ -6,14 +6,14 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.os.Build;
-import android.support.annotation.Nullable;
-import android.support.v4.view.ViewCompat;
+import androidx.annotation.Nullable;
+import androidx.core.view.ViewCompat;
 import android.text.Layout;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
 
-import static android.support.v4.view.ViewCompat.LAYOUT_DIRECTION_RTL;
+import static androidx.core.view.ViewCompat.LAYOUT_DIRECTION_RTL;
 
 public class TextViewAttrsHelper {
   public int mSpacingAdd;
@@ -29,36 +29,26 @@ public class TextViewAttrsHelper {
   public void init(Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
     final Resources.Theme theme = context.getTheme();
     TypedArray a = theme.obtainStyledAttributes(attrs,
-        com.android.internal.R.styleable.TextView, defStyleAttr, defStyleRes);
+        R.styleable.FastTextView, defStyleAttr, defStyleRes);
     int n = a.getIndexCount();
     for (int i = 0; i < n; i++) {
       int attr = a.getIndex(i);
-      switch (attr) {
-        case com.android.internal.R.styleable.TextView_gravity:
-          mGravity = a.getInt(attr, Gravity.TOP | Gravity.LEFT);
-          break;
-        case com.android.internal.R.styleable.TextView_text:
-          mText = a.getText(attr);
-          break;
-        case com.android.internal.R.styleable.TextView_ellipsize:
-          mEllipsize = a.getInt(attr, mEllipsize);
-          break;
-        case com.android.internal.R.styleable.TextView_maxLines:
-          mMaxLines = a.getInt(attr, Integer.MAX_VALUE);
-          break;
-        case com.android.internal.R.styleable.TextView_textColor:
-          // Do not support ColorState
-          mTextColor = a.getColorStateList(attr);
-          break;
-        case com.android.internal.R.styleable.TextView_textSize:
-          mTextSize = a.getDimensionPixelSize(attr, 15);
-          break;
-        case com.android.internal.R.styleable.TextView_lineSpacingExtra:
-          mSpacingAdd = a.getDimensionPixelSize(attr, mSpacingAdd);
-          break;
-        case com.android.internal.R.styleable.TextView_lineSpacingMultiplier:
-          mSpacingMultiplier = a.getFloat(attr, mSpacingMultiplier);
-          break;
+      if (attr == R.styleable.FastTextView_android_gravity) {
+        mGravity = a.getInt(attr, Gravity.TOP | Gravity.LEFT);
+      } else if (attr == R.styleable.FastTextView_android_text) {
+        mText = a.getText(attr);
+      } else if (attr == R.styleable.FastTextView_android_ellipsize) {
+        mEllipsize = a.getInt(attr, mEllipsize);
+      } else if (attr == R.styleable.FastTextView_android_maxLines) {
+        mMaxLines = a.getInt(attr, Integer.MAX_VALUE);
+      } else if (attr == R.styleable.FastTextView_android_textColor) {// Do not support ColorState
+        mTextColor = a.getColorStateList(attr);
+      } else if (attr == R.styleable.FastTextView_android_textSize) {
+        mTextSize = a.getDimensionPixelSize(attr, 15);
+      } else if (attr == R.styleable.FastTextView_android_lineSpacingExtra) {
+        mSpacingAdd = a.getDimensionPixelSize(attr, mSpacingAdd);
+      } else if (attr == R.styleable.FastTextView_android_lineSpacingMultiplier) {
+        mSpacingMultiplier = a.getFloat(attr, mSpacingMultiplier);
       }
     }
   }

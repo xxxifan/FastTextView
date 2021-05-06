@@ -1,9 +1,8 @@
 package com.wechat.testdemo;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.FragmentActivity;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import androidx.fragment.app.FragmentActivity;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;

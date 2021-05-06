@@ -2,9 +2,8 @@ package com.lsjwzh.test;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.os.SystemClock;
-import android.support.annotation.Nullable;
-import android.support.annotation.Px;
+import androidx.annotation.Nullable;
+import androidx.annotation.Px;
 import android.util.AttributeSet;
 import android.widget.TextView;
 

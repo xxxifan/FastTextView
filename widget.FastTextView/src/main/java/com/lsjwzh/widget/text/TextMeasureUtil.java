@@ -2,7 +2,7 @@ package com.lsjwzh.widget.text;
 
 import android.graphics.Paint;
 import android.graphics.Rect;
-import android.support.annotation.IntRange;
+import androidx.annotation.IntRange;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.ReplacementSpan;

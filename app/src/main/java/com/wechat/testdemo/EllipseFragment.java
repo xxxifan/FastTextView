@@ -1,15 +1,12 @@
 package com.wechat.testdemo;
 
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.SystemClock;
-import android.support.annotation.IntRange;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import android.text.Layout;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
@@ -19,16 +16,12 @@ import android.text.TextPaint;
 import android.text.TextUtils;
 import android.text.style.ImageSpan;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.lsjwzh.test.TestSingleLineTextView;
-import com.lsjwzh.widget.text.FastTextLayoutView;
 import com.lsjwzh.widget.text.FastTextView;
-import com.lsjwzh.widget.text.ReadMoreTextView;
 import com.lsjwzh.widget.text.StrokeSpan;
 
 /**

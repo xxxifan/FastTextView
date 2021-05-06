@@ -19,7 +19,7 @@ package android.text;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Paint.FontMetricsInt;
-import android.support.annotation.RequiresApi;
+import androidx.annotation.RequiresApi;
 import android.text.Layout.TabStops;
 import android.text.style.CharacterStyle;
 import android.text.style.MetricAffectingSpan;

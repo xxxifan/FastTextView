@@ -2,7 +2,7 @@ package com.wechat.testdemo;
 
 import android.graphics.Paint;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 import android.text.Layout;
 import android.text.StaticLayout;
 import android.text.TextLayoutCache;

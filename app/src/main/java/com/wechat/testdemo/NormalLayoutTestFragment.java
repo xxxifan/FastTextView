@@ -2,22 +2,18 @@ package com.wechat.testdemo;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.os.SystemClock;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lsjwzh.test.AutoScrollHandler;
-import com.lsjwzh.test.FastTextView;
 import com.lsjwzh.test.TestSpan;
 import com.lsjwzh.test.TestTextView;
 import com.lsjwzh.test.Util;

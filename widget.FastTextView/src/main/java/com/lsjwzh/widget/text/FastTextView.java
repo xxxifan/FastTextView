@@ -7,9 +7,9 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import android.text.EllipsisSpannedContainer;
 import android.text.Layout;
 import android.text.LayoutUtils;
@@ -242,7 +242,7 @@ public class FastTextView extends FastTextLayoutView {
     return mText;
   }
 
-  public void setText(@android.annotation.NonNull CharSequence text) {
+  public void setText(@NonNull CharSequence text) {
     if (mText != text) {
       clearTextLayout(false);
     }

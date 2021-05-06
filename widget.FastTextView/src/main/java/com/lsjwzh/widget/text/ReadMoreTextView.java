@@ -4,11 +4,10 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.os.Build;
-import android.support.annotation.IntRange;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
-import android.text.Spannable;
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.StaticLayout;
@@ -51,7 +50,7 @@ public class ReadMoreTextView extends FastTextView {
   }
 
   @Override
-  public void setText(CharSequence text) {
+  public void setText(@NonNull CharSequence text) {
     if (text != getText()) {
       mIsShowAll = false;
       mWithEllipsisLayout = null;

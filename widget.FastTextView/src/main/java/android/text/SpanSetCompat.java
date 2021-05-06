@@ -56,9 +56,7 @@ public class SpanSetCompat<E> {
 
         int prevNumberOfSpans = numberOfSpans;
         numberOfSpans = 0;
-        for (int i = 0; i < length; i++) {
-            final E span = allSpans[i];
-
+        for (final E span : allSpans) {
             final int spanStart = spanned.getSpanStart(span);
             final int spanEnd = spanned.getSpanEnd(span);
             if (spanStart == spanEnd) continue;

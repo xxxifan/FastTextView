@@ -71,7 +71,7 @@ public class FastTextView extends FastTextLayoutView {
       defStyleRes) {
     mAttrsHelper.init(context, attrs, defStyleAttr, defStyleRes);
     setText(mAttrsHelper.mText);
-    TextPaint textPaint = getTextPaint();
+    TextPaint textPaint = getPaint();
     mCurTextColor = mAttrsHelper.mTextColor.getDefaultColor();
     textPaint.setColor(mCurTextColor);
     textPaint.setTextSize(mAttrsHelper.mTextSize);
@@ -88,7 +88,7 @@ public class FastTextView extends FastTextLayoutView {
     int color = mAttrsHelper.mTextColor.getColorForState(drawableState, mCurTextColor);
     if (color != mCurTextColor) {
       mCurTextColor = color;
-      getTextPaint().setColor(mCurTextColor);
+      getPaint().setColor(mCurTextColor);
       inval = true;
     }
     if (inval) {
@@ -160,16 +160,6 @@ public class FastTextView extends FastTextLayoutView {
         mLayout = makeLayout(mText, width, exactly);
       }
     }
-    if (Build.VERSION.SDK_INT <= 19 && mLayout != null) {
-      // when <= api 19, maxLines can not be supported well.
-      int height = mAttrsHelper.mMaxLines < mLayout.getLineCount() ? mLayout.getLineTop
-          (mAttrsHelper.mMaxLines) : mLayout.getHeight();
-      setMeasuredDimension(getMeasuredWidth(getPaddingLeft() + getPaddingRight() + mLayout
-              .getWidth(), widthMeasureSpec),
-          getMeasuredHeight(getPaddingTop() + getPaddingBottom() + height, heightMeasureSpec));
-    } else {
-      super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-    }
   }
 
   protected boolean shouldResetStaticLayout(int width, CharSequence text, Layout layout) {
@@ -230,11 +220,6 @@ public class FastTextView extends FastTextLayoutView {
   }
 
   public TextPaint getPaint() {
-    return mTextPaint;
-  }
-
-  @Deprecated
-  public TextPaint getTextPaint() {
     return mTextPaint;
   }
 

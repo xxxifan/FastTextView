@@ -94,39 +94,35 @@ public class TextViewAttrsHelper {
 
   public static Layout.Alignment getLayoutAlignment(View view, int gravity) {
     Layout.Alignment alignment;
-    if (Build.VERSION.SDK_INT >= 17) {
-      switch (view.getTextAlignment()) {
-        case android.view.View.TEXT_ALIGNMENT_GRAVITY:
-          alignment = getAlignmentByGravity(gravity);
-          break;
-        case android.view.View.TEXT_ALIGNMENT_TEXT_START:
-          alignment = Layout.Alignment.ALIGN_NORMAL;
-          break;
-        case android.view.View.TEXT_ALIGNMENT_TEXT_END:
-          alignment = Layout.Alignment.ALIGN_OPPOSITE;
-          break;
-        case android.view.View.TEXT_ALIGNMENT_CENTER:
-          alignment = Layout.Alignment.ALIGN_CENTER;
-          break;
-        case android.view.View.TEXT_ALIGNMENT_VIEW_START:
-          alignment = (ViewCompat.getLayoutDirection(view) == LAYOUT_DIRECTION_RTL) ?
-              Layout.Alignment.ALIGN_RIGHT : Layout.Alignment.ALIGN_LEFT;
-          break;
-        case android.view.View.TEXT_ALIGNMENT_VIEW_END:
-          alignment = (ViewCompat.getLayoutDirection(view) == LAYOUT_DIRECTION_RTL) ?
-              Layout.Alignment.ALIGN_LEFT : Layout.Alignment.ALIGN_RIGHT;
-          break;
-        case android.view.View.TEXT_ALIGNMENT_INHERIT:
-          // This should never happen as we have already resolved the text alignment
-          // but better safe than sorry so we just fall through
-        default:
-          alignment = Layout.Alignment.ALIGN_NORMAL;
-          break;
-      }
-      return alignment;
-    } else {
-      return getAlignmentByGravity(gravity);
+    switch (view.getTextAlignment()) {
+      case android.view.View.TEXT_ALIGNMENT_GRAVITY:
+        alignment = getAlignmentByGravity(gravity);
+        break;
+      case android.view.View.TEXT_ALIGNMENT_TEXT_START:
+        alignment = Layout.Alignment.ALIGN_NORMAL;
+        break;
+      case android.view.View.TEXT_ALIGNMENT_TEXT_END:
+        alignment = Layout.Alignment.ALIGN_OPPOSITE;
+        break;
+      case android.view.View.TEXT_ALIGNMENT_CENTER:
+        alignment = Layout.Alignment.ALIGN_CENTER;
+        break;
+      case android.view.View.TEXT_ALIGNMENT_VIEW_START:
+        alignment = (ViewCompat.getLayoutDirection(view) == LAYOUT_DIRECTION_RTL) ?
+            Layout.Alignment.ALIGN_RIGHT : Layout.Alignment.ALIGN_LEFT;
+        break;
+      case android.view.View.TEXT_ALIGNMENT_VIEW_END:
+        alignment = (ViewCompat.getLayoutDirection(view) == LAYOUT_DIRECTION_RTL) ?
+            Layout.Alignment.ALIGN_LEFT : Layout.Alignment.ALIGN_RIGHT;
+        break;
+      case android.view.View.TEXT_ALIGNMENT_INHERIT:
+        // This should never happen as we have already resolved the text alignment
+        // but better safe than sorry so we just fall through
+      default:
+        alignment = Layout.Alignment.ALIGN_NORMAL;
+        break;
     }
+    return alignment;
   }
 
   private static Layout.Alignment getAlignmentByGravity(int gravity) {

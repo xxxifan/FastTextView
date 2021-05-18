@@ -160,6 +160,8 @@ public class FastTextView extends FastTextLayoutView {
         mLayout = makeLayout(mText, width, exactly);
       }
     }
+
+    super.onMeasure(widthMeasureSpec, heightMeasureSpec);
   }
 
   protected boolean shouldResetStaticLayout(int width, CharSequence text, Layout layout) {
